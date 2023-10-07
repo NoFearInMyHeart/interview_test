@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    let userList = [
+        {name: 'zhangsan', age: 18,},
+        {name: 'lisi', age: 22,},
+        {name: 'zhangsan', age: 18,},
+        {name: 'lisi', age: 22,},
+        {name: 'lilei', age: 23,},
+        {name: 'hanmeimei', age: 27,},
+    ]
+
+    function handlerFilter(arr, key) {
+        const res = new Map();
+        return arr.filter((item) => !res.has(item[key]) && res.set(item[key], true));
+    }
+
+    console.log(handlerFilter(userList, "name"))
+</script>
+</html>

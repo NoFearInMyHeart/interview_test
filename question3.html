@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+  const data = [
+          ['a', 'c', 1, 6, 5],
+          [6, 7, 'd', 9, '3', 11],
+          [12, 13, 14, 15, 16, 17]
+  ]
+
+  function preSumArrLen(arr, limit) {
+    let sum = 0;
+
+    for (let i = 0; i <= limit; i++) {
+      sum += arr[i];
+    }
+
+    return sum;
+  }
+
+
+  function getter(arr, index) {
+    let splitIndexArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      splitIndexArr.push(arr[i].length);
+    }
+
+    for (let j = 0; j < splitIndexArr.length; j++) {
+      let len  = preSumArrLen(splitIndexArr, j);
+      if (index <= len) {
+        // console.log(`${j}${splitIndexArr[j] - (len - index)}`)
+        return arr[j][splitIndexArr[j] - (len - index + 1)]
+      }
+    }
+  }
+
+  console.log(getter(data, 5));
+  console.log(getter(data, 8));
+  console.log(getter(data, 13));
+
+  function setter(arr, index, data) {
+    let splitIndexArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      splitIndexArr.push(arr[i].length);
+    }
+
+    for (let j = 0; j < splitIndexArr.length; j++) {
+      let len  = preSumArrLen(splitIndexArr, j);
+      if (index <= len) {
+        // console.log(`${j}${splitIndexArr[j] - (len - index)}`)
+        arr[j][splitIndexArr[j] - (len - index + 1)] = data;
+      }
+    }
+  }
+
+  setter(data, 1, '哈哈');
+  console.log(getter(data, 1));
+</script>
+</html>

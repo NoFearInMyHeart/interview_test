@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+   let arr1 = [{name: "张三", age: 13}];
+   let arr2 = [{name: "李四", age: 14}];
+   let arr3 = [{name: "张三", age: 13}];
+
+   function compareArr(arr1, arr2) {
+       if (arr1.length !== arr2.length) {
+           return false;
+       }
+
+       for (let i = 0; i < arr1.length; i++) {
+           for (let key in arr1[i]) {
+               if (arr1[i][key] !== arr2[i][key]) {
+                   return false;
+               }
+           }
+       }
+
+       return true;
+   }
+
+   console.log(compareArr(arr1, arr2));
+   console.log(compareArr(arr1, arr3));
+   console.log(compareArr(arr2, arr3));
+</script>
+</html>
